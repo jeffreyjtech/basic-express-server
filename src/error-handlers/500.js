@@ -1,7 +1,8 @@
 'use strict';
 
-function handler500() {
-
+function handle500(err, req, res, next) {
+  console.error('Server Error', err);
+  res.status(500).send('Server Error');
 }
 
-module.exports = handler500;
+module.exports = handle500;
