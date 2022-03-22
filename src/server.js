@@ -10,8 +10,17 @@ const app = express();
 // Import modules
 const logger = require('./middleware/logger.js');
 const validator = require('./middleware/validator.js');
-const handler404 = require('./error-handlers/404.js');
-const handler500 = require('./error-handlers/500.js');
+const handle404 = require('./error-handlers/404.js');
+const handle500 = require('./error-handlers/500.js');
+
+function handlePerson(req, res, next) {
+  console.log('Handling person', '\n Received query:', req.query);
+  res.send({ name: req.query.name });
+}
+
+// ROUTES
+app.get('/person', logger, validator, handlePerson);
+
 
 // start function
 function start(PORT) {
@@ -19,6 +28,16 @@ function start(PORT) {
     console.log('Server listening!');
   });
 }
+
+app.use(logger);
+
+app.get('*', (req, res, next) => {
+  let err = new Error;
+  next(err);
+});
+
+app.use(handle404);
+app.use(handle500);
 
 module.exports = {
   start: start,
