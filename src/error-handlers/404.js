@@ -1,7 +1,8 @@
 'use strict';
 
-function handler404() {
-
+function handle404(err, req, res, next) {
+  console.error('Not-Found', err);
+  res.status(404).send('Not-Found');
 }
 
-module.exports = handler404;
+module.exports = handle404;
