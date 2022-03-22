@@ -1,7 +1,8 @@
 'use strict';
 
-function logger() {
-
+function logger(req, res, next) {
+  console.log(`Logging request \n method: ${req.method} \n path: ${req.path}`);
+  next();
 }
 
 module.exports = logger;
