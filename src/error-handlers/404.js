@@ -1,8 +1,12 @@
 'use strict';
 
 function handle404(err, req, res, next) {
-  console.error('Not-Found', err);
-  res.status(404).send('Not-Found');
+  if(err.status === 404) {
+    console.error('Not-Found', err);
+    res.status(404).send('Not-Found');
+  } else {
+    next(err);
+  }
 }
 
 module.exports = handle404;
