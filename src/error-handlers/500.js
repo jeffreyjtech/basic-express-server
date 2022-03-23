@@ -1,7 +1,7 @@
 'use strict';
 
 function handle500(err, req, res, next) {
-  console.log('Server Error', err);
+  console.error('Server Error');
   res.status(500).send('Server Error');
 }
 
