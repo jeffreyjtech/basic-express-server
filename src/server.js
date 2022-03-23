@@ -14,7 +14,6 @@ const handle404 = require('./error-handlers/404.js');
 const handle500 = require('./error-handlers/500.js');
 
 function handlePerson(req, res, next) {
-  console.log('Handling person', '\n Received query:', req.query);
   res.send({ name: req.query.name });
 }
 
