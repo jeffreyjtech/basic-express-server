@@ -21,7 +21,7 @@ function handlePerson(req, res, next) {
 app.use(logger);
 
 // ROUTES
-app.get('/person', logger, validator, handlePerson);
+app.get('/person', validator, handlePerson);
 // app.get('/error', forceError);
 
 // function forceError(req, res, next) {
