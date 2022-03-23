@@ -24,13 +24,6 @@ app.use(logger);
 app.get('/person', logger, validator, handlePerson);
 // app.get('/error', forceError);
 
-// start function
-function start(PORT) {
-  app.listen(PORT, () => {
-    console.log('Server listening!');
-  });
-}
-
 // function forceError(req, res, next) {
 //   let err = new Error;
 //   next(err);
@@ -45,6 +38,13 @@ app.get('*', (req, res, next) => {
 // .use() error handlers
 app.use(handle404);
 app.use(handle500);
+
+// start function
+function start(PORT) {
+  app.listen(PORT, () => {
+    console.log('Server listening!');
+  });
+}
 
 module.exports = {
   start: start,
