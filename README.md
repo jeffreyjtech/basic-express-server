@@ -26,7 +26,7 @@ After installation, run `npm start`.
 
 - GET : `/person?name=myName`
   - Parameters
-    - must include a name in the query string with a non-null value.
+    - must include a name in the query string with a parse-able string.
   - Response
     - status `200`, and string body if parameters look good.
       - body: `{"name": "myName"}`
