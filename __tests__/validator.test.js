@@ -7,11 +7,12 @@ const request = supertest(app);
 describe('Testing validator handler', () => {
 
   it('API should return 200 with a correct object if request is good', async () => {
-    let url = '/person?name=Jeffrey';
+    let query = 'Jeffrey';
+    let url = `/person?name=${query}`;
     const response = await request.get(url);
 
     expect(response.status).toEqual(200);
-    
+    expect(response.body.name).toEqual(query);
   });
 
   it('API should return 500 if request query is missing name property', async () => {
