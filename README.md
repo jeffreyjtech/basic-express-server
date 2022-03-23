@@ -1,6 +1,6 @@
 # basic-express-server
 
-A basic express server with one route
+A basic express server with one route.
 
 [Deployed API](https://jjtech-basic-express-server.herokuapp.com)
 
