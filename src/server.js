@@ -43,7 +43,6 @@ app.get('*', (req, res, next) => {
   next(err);
 });
 
-
 // .use() error handlers
 app.use(handle404);
 app.use(handle500);
