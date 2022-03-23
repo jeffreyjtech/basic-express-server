@@ -4,7 +4,7 @@ A basic express server with one route
 
 [Deployed API](https://jjtech-basic-express-server.herokuapp.com)
 
-![UML Diagram](./assets/uml.png)
+![UML Diagram](./assets/uml-401-lab-2.jpg)
 
 ## Installation
 
