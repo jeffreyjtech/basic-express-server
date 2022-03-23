@@ -18,9 +18,12 @@ function handlePerson(req, res, next) {
   res.send({ name: req.query.name });
 }
 
+// .use() catch-all handlers
+app.use(logger);
+
 // ROUTES
 app.get('/person', logger, validator, handlePerson);
-
+// app.get('/error', forceError);
 
 // start function
 function start(PORT) {
@@ -29,16 +32,23 @@ function start(PORT) {
   });
 }
 
-app.use(logger);
+// function forceError(req, res, next) {
+//   let err = new Error;
+//   next(err);
+// }
 
 app.get('*', (req, res, next) => {
   let err = new Error;
+  err.status = 404;
   next(err);
 });
 
+
+// .use() error handlers
 app.use(handle404);
 app.use(handle500);
 
 module.exports = {
   start: start,
+  app: app,
 };
