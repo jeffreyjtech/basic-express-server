@@ -6,12 +6,19 @@ const request = supertest(app);
 
 describe('Testing validator handler', () => {
 
-  it('API should return 200 with a correct object if request is good', async () => {
+  it('API should return 200 if request is good', async () => {
     let query = 'Jeffrey';
     let url = `/person?name=${query}`;
     const response = await request.get(url);
 
     expect(response.status).toEqual(200);
+  });
+
+  it('API should return a correct object if request is good', async () => {
+    let query = 'Jeffrey';
+    let url = `/person?name=${query}`;
+    const response = await request.get(url);
+
     expect(response.body.name).toEqual(query);
   });
 
