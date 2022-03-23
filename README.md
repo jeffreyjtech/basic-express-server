@@ -1,6 +1,6 @@
-# basic-express-server
+# Basic Express Server
 
-A basic express server with one route.
+A fully modularized express server with one route. Includes `jest` test files.
 
 [Deployed API](https://jjtech-basic-express-server.herokuapp.com)
 
